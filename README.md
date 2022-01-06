@@ -1,6 +1,5 @@
 # Hike_It
 
-
 ### Table of Contents
 
 - [Description](#description)
@@ -38,11 +37,9 @@ Book Search Engine is a book search application that searches for books you choo
 
 [HikeIt]()
 
-![Homepage]()
-![Login/Signup]()
-![Personal_Account]()
-![Hiking_Trails]()
+- ![Homepage]()
+- ![Login/Signup]()
+- ![Personal_Account]()
+- ![Hiking_Trails]()
 
 #### Contact_Info
-
-
