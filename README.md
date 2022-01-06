@@ -10,7 +10,7 @@
 
 ## Description:
 
-Book Search Engine is a book search application that searches for books you choose and stores your selections in a database that allows you to retrieve the ones you've saved and remove the ones you no longer care to keep.
+HikeIt is a hiking application that searches for trails
 
 ### Creators
 
