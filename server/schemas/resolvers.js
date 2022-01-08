@@ -13,6 +13,22 @@ const resolvers = {
     models: async (parent, { }) => {
 
     }
+  },
+  Mutation: {
+    addUser: async (parent, args) => {
+      const user = await UserInputError.create(args);
+      const token = signToken(user);
+
+      return { token, user };
+    },
+    addTrail: async (parent, args, context) => {
+      console.log(context);
+      if (context.user) {
+        const trail = new Trail({ args });
+
+        await 
+      }
+    }
   }
 };
 
