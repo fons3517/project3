@@ -1,0 +1,19 @@
+{
+  "name": "project3",
+  "version": "1.0.0",
+  "description": "Hiking application",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fons3517/project3.git"
+  },
+  "author": "Andrew Martinez, Maria Vallejo, Alfonso Robles, Matthew Weissing",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fons3517/project3/issues"
+  },
+  "homepage": "https://github.com/fons3517/project3#readme"
+}
