@@ -1,0 +1,33 @@
+Footer {
+  background-color: seashell !important;
+
+  // unvisited link
+  a:link {
+    color: #666;
+    text-decoration: none;
+  }
+
+  // visited link
+  a:visited {
+    color: red;
+    text-decoration: none;
+  }
+
+  // hover over link
+  a:hover {
+    color: orange;
+    text-decoration: none;
+  }
+
+  // active link
+  a:active {
+    color: royalblue;
+    text-decoration: none;
+  }
+
+  .copyright {
+    background-color: seashell !important;
+  }
+}
+
+// will need to come back and look at styling when page is rendered and visible
