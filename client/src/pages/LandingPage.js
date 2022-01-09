@@ -17,7 +17,7 @@ const LandingPage = () => {
             <p className="mt-4">Find, save, and track your next adventure!</p>
             <p className="mt-5">
               <Button variant="warning">
-                <Link to="./Login" alt="login" style={{ color: white }}>
+                <Link to="./login" alt="login" style={{ color: "white" }}>
                   Let's Go For A Hike!
                 </Link>
               </Button>
