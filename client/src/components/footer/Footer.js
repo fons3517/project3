@@ -1,6 +1,6 @@
 import React from "react";
 import AppTitle from "../appTitle/AppTitle";
-import "./footer.scss";
+import "./Footer.scss";
 
 const Footer = () => {
   return (
