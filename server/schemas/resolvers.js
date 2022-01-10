@@ -26,7 +26,6 @@ const resolvers = {
       if (context.user) {
         const trail = new Trail({ args });
 
-        await 
       }
     }
   }
