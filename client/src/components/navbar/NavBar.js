@@ -16,11 +16,11 @@ const NavBar = () => {
   if (localStorage.getItem("__token__")) {
     return (
       <Navbar bg="light" expand="lg">
-        <Navbar.AppTitle>
+        <Navbar.Brand>
           <Link to="/myhikes">
             <AppTitle />
           </Link>
-        </Navbar.AppTitle>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
@@ -47,11 +47,11 @@ const NavBar = () => {
   }
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.AppTitle>
+      <Navbar.Brand>
         <Link to="/">
           <AppTitle />
         </Link>
-      </Navbar.AppTitle>
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
