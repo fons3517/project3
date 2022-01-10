@@ -20,7 +20,7 @@ type Auth {
 }
 
 type Query {
-  
+  me : User
 }
 
 type Mutation {
@@ -29,5 +29,6 @@ type Mutation {
   updateUser(firstName: String, lastName: String, email: String, password: String): User
   login(email: String!, password: String!): Auth
 }
+>>>>>>> refs/remotes/origin/main
 `;
 module.exports = typeDefs;
