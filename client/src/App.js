@@ -3,16 +3,22 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  createHttpLink
+  createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
-
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import MyHikes from "./pages/MyHikes";
+import MyTrails from "./pages/MyTrails";
+import FindAHike from "./pages/FindAHike";
+import Contact from "./pages/Contact";
+import Profile from "./pages/Profile";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
-  uri: "/graphql"
+  uri: "/graphql",
 });
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
@@ -23,24 +29,31 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : ""
-    }
+      authorization: token ? `Bearer ${token}` : "",
+    },
   };
 });
 
 const client = new ApolloClient({
   // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 });
 
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <>
-          <LandingPage />
-        </>
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+          <ProtectedRoute exact path="/myhikes" component={MyHikes} />
+          <ProtectedRoute exact path="/mytrails" component={MyTrails} />
+          <ProtectedRoute exact path="/findahike" component={FindAHike} />
+          <Route exact path="./profile" component={Profile} />
+          <Route exact path="/contact" component={Contact} />
+        </Switch>
       </Router>
     </ApolloProvider>
   );
