@@ -30,6 +30,7 @@ type Mutations {
   addTrail(name: String!): Trail
   updateUser(firstName: String, lastName: String, email: String): User
   login(email: String!, password; String!): Auth
+  me : User
 }
 `;
 module.exports = typeDefs;
