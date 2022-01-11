@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { } = require('../models');
+const { User, Trail } = require('../models');
 const { signToken } = require('../utils/auth');
 
 // Set-up Stripe for future development
@@ -22,7 +22,6 @@ const resolvers = {
     addUser: async (parent, args) => {
       const user = await UserInputError.create(args);
       const token = signToken(user);
-
       return { token, user };
     },
     addTrail: async (parent, args, context) => {
@@ -31,6 +30,7 @@ const resolvers = {
         const trail = new Trail({ args });
       }
     }
+
   }
 };
 
