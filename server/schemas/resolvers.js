@@ -10,7 +10,7 @@ const resolvers = {
     users: async () => {
       return await User.find();
     },
-    trails: async (parent, { category, name }) => {
+    trails: async (parent, { }) => {
       const params = {};
 
     }

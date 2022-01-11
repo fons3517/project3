@@ -20,7 +20,9 @@ type Auth {
 }
 
 type Query {
-  
+  user: User
+  trails: (name: String): [Trail]
+  trail: (_id: ID): Trail
 }
 
 type Mutations {
