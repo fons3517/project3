@@ -25,11 +25,11 @@ type Query {
   trail: (_id: ID): Trail
 }
 
-type Mutations {
+type Mutation {
   addUser(firstName: String!, lastName: String!, email: String!): Auth
   addTrail(name: String!): Trail
   updateUser(firstName: String, lastName: String, email: String): User
-  login(email: String!, password; String!): Auth
+  login(email: String!, password: String!): Auth
   me : User
 }
 `;
