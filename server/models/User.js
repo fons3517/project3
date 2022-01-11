@@ -5,10 +5,13 @@ const Trail = require('./Trail');
 
 
 const userSchema = new Schema({
-  username: {
+  firstName: {
     type: String,
     required: true,
-    unique: true
+  },
+  lastName: {
+    type: String,
+    required: true,
   },
   email: {
     type: String,
@@ -21,7 +24,7 @@ const userSchema = new Schema({
     required: true,
     minLenth: 8
   },
-  trails: [Trail.schema]
+  trails: [Trail.schema],
 });
 
 // pre-save middleware to create password
