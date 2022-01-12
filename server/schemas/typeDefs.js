@@ -20,17 +20,13 @@ type Auth {
 }
 
 type Query {
-  user: User
-  trails: (name: String): [Trail]
-  trail: (_id: ID): Trail
+  me: User
 }
 
-type Mutations {
+type Mutation {
   addUser(firstName: String!, lastName: String!, email: String!): Auth
   addTrail(name: String!): Trail
-  updateUser(firstName: String, lastName: String, email: String): User
-  login(email: String!, password; String!): Auth
-  me : User
+  login(email: String!, password: String!): Auth
 }
 `;
 module.exports = typeDefs;

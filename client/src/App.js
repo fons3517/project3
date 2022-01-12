@@ -48,9 +48,9 @@ function App() {
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
-          <ProtectedRoute exact path="/myhikes" component={MyHikes} />
-          <ProtectedRoute exact path="/mytrails" component={MyTrails} />
-          <ProtectedRoute exact path="/findahike" component={FindAHike} />
+          <Route exact path="/myhikes" component={MyHikes} />
+          <Route exact path="/mytrails" component={MyTrails} />
+          <Route exact path="/findahike" component={FindAHike} />
           <Route exact path="./profile" component={Profile} />
           <Route exact path="/contact" component={Contact} />
         </Switch>
