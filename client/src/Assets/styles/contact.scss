@@ -1,0 +1,19 @@
+.contact-container {
+  color: #000;
+  border-radius: 0 !important;
+  background-image: url("../images/mountain-greenery.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  max-width: 100% !important;
+  min-height: 100vh;
+}
+
+.contact-text-container {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.border-radius-top {
+  border-radius: 2rem 2rem 0 0;
+}
