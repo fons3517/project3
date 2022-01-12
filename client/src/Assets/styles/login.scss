@@ -1,11 +1,13 @@
 .image-container {
   color: #000;
+  padding: 0 !important;
   border-radius: 0 !important;
-  background-image: url("../images/desert-mountain-hike.jpg");
+  background-image: url("../images/mother-kid-hike.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: bottom;
+  background-position: center;
+  max-width: 100% !important;
   min-height: 100vh;
 }
 .login-text {

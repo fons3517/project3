@@ -81,8 +81,8 @@ function Login(props) {
               </div>
             </div>
             <p className="mt-5">
-              <Link to="./register" alt="register" style={{ color: "black" }}>
-                Register
+              <Link to="./signup" alt="register" style={{ color: "black" }}>
+                Signup
               </Link>
             </p>
           </div>
