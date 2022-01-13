@@ -34,12 +34,12 @@ export const ADD_USER = gql`
 
 export const SAVE_TRAIL = gql`
   mutation saveTrail(
-      $name: String!
-      $description: String!
-      $directions: String!
-      $difficulty: String!
-      $length: Number
-      $rating: Number
+    $name: String!
+    $description: String!
+    $directions: String!
+    $difficulty: String!
+    $length: Number
+    $rating: Number
   ) {
     saveTrail(
       name: $name
@@ -50,8 +50,7 @@ export const SAVE_TRAIL = gql`
       rating: $rating
     ) {
       token
-        user {
-          _id
+      user {
       }
     }
   }
