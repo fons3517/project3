@@ -40,7 +40,7 @@ function Login(props) {
         <div className="row justify-content-center">
           <div className="login-text p-5 m-5 col-lg-4">
             <div className="row pb-3 text-center">
-              <div className="col-md-12">
+              <div className="container-title col-md-12 mb-3">
                 <h1>Hike It Login</h1>
               </div>
               <div className="col-md-12 mt-2 mb-2">
@@ -72,7 +72,7 @@ function Login(props) {
                   <Button
                     variant="success"
                     type="submit"
-                    style={{ width: "100%" }}
+                    style={{ width: "50%", fontWeight: "bolder" }}
                     onClick={handleFormSubmit}
                   >
                     Login
@@ -80,11 +80,15 @@ function Login(props) {
                 </Form>
               </div>
             </div>
-            <p className="mt-5">
-              <Link to="./signup" alt="register" style={{ color: "black" }}>
-                Signup
-              </Link>
-            </p>
+            <div className="row pb-3 text-center">
+              <div className="container-title col-md-12 mt-3 mb-3">
+                <Button variant="success" style={{ width: "50%" }}>
+                  <Link to="./signup" alt="register" style={{ color: "white" }}>
+                    Signup
+                  </Link>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
