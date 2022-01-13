@@ -44,3 +44,19 @@ HikeIt is a hiking application that allows you to search for hiking trails in yo
 - ![Hiking_Trails]()
 
 #### Contact_Info
+
+- MARIA VALLEJO:
+- Github (https://github.com/Mvalljo)
+- LinkedIn (https://www.linkedin.com/in/maria-vallejo-8237a41a6/)
+
+- MATTHEW WIESSING:
+- Github (https://github.com/Kiasiri)
+- LinkedIn (http://www.linkedin.com/in/matthew-wiessing-06b754214)
+
+- ANDREW MARTINEZ:
+- Github (https://github.com/andrew18929)
+- LinkedIn (https://www.linkedin.com/in/andrew-martinez-03144b192)
+
+- ALFONSO ROBLES:
+- Github (https://github.com/fons3517)
+- LinkedIn (https://www.linkedin.com/in/alfonso-robles-3517-agr/)
