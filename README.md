@@ -35,10 +35,11 @@ HikeIt is a hiking application that searches for trails
 
 #### Media
 
-[HikeIt]()
+- [HikeIt](https://hikeit2022.herokuapp.com/)
 
-- ![Homepage]()
-- ![Login/Signup]()
+- ![Homepage](./client/public/assets/images/HomePage.jpg)
+- ![Login](./client/public/assets/images/Login.jpg)
+- ![Sign-up](./client/public/assets/images/SignUp.jpg)
 - ![Personal_Account]()
 - ![Hiking_Trails]()
 
