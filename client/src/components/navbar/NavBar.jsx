@@ -1,7 +1,7 @@
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Logout from "../../components/logout/Logout";
+import Logout from "../logout/Logout";
 import AppTitle from "../appTitle/AppTitle";
 import "../../Assets/styles/navbar.scss";
 
@@ -15,7 +15,7 @@ it will just render Login, Signup, and Contact
 const NavBar = () => {
   if (localStorage.getItem("__token__")) {
     return (
-      <Navbar bg="light" expand="lg">
+      <Navbar className="color-nav">
         <Navbar.Brand>
           <Link to="/myhikes">
             <AppTitle />
@@ -46,7 +46,7 @@ const NavBar = () => {
     );
   }
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar className="color-nav" expand="lg">
       <Navbar.Brand>
         <Link to="/">
           <AppTitle />
