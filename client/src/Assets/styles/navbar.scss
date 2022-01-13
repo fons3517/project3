@@ -1,5 +1,17 @@
-Link:hover {
-  color: seagreen;
+.color-nav {
+  background-color: #fff8ed;
+}
+
+.nav-link:hover {
+  color: blue;
+}
+
+.nav-link {
+  font-weight: bold;
+
+  Link:hover {
+    color: blue;
+  }
 }
 
 // need to do some more styling in here once we get the page rendered and visible

@@ -2,28 +2,22 @@ Footer {
   background-color: seashell !important;
 
   // unvisited link
-  a:link {
+  a {
     color: #666;
-    text-decoration: none;
-  }
-
-  // visited link
-  a:visited {
-    color: red;
     text-decoration: none;
   }
 
   // hover over link
   a:hover {
-    color: orange;
+    color: blue;
     text-decoration: none;
   }
 
-  // active link
-  a:active {
-    color: royalblue;
-    text-decoration: none;
-  }
+  // // active link
+  // a:active {
+  //   color: royalblue;
+  //   text-decoration: none;
+  // }
 
   .copyright {
     background-color: seashell !important;
