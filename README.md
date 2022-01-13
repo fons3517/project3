@@ -3,7 +3,7 @@
 ### Table of Contents
 
 - [Description](#description)
-- [Contributors](#contributors)
+- [Creators](#creators)
 - [Installation](#installation)
 - [Technologies_Used](#technologies_used)
 - [Media](#media)
