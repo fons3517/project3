@@ -21,11 +21,13 @@ type Auth {
 
 type Query {
   me: User
+  trails: [Trail]
+  trail(_id: ID!): Trail
 }
 
 type Mutation {
   addUser(firstName: String!, lastName: String!, email: String!): Auth
-  addTrail(name: String!): Trail
+  saveTrail(name: String!): Trail
   login(email: String!, password: String!): Auth
 }
 `;
