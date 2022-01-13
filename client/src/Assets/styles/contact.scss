@@ -1,8 +1,7 @@
-.image-container {
+.contact-container {
   color: #000;
-  padding: 0 !important;
   border-radius: 0 !important;
-  background-image: url("../images/mother-kid-hike.jpg");
+  background-image: url("../images/mountain-greenery.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -10,7 +9,11 @@
   max-width: 100% !important;
   min-height: 100vh;
 }
-.login-text {
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 2rem;
+
+.contact-text-container {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.border-radius-top {
+  border-radius: 2rem 2rem 0 0;
 }

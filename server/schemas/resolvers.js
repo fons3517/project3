@@ -27,8 +27,9 @@ const resolvers = {
     addTrail: async (parent, args, context) => {
       console.log(context);
       if (context.user) {
-        const trail = new Trail({ args });
+        const trail = await Trail.findOne(params._id);
       }
+      return trail;
     }
 
   }
