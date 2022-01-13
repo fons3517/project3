@@ -32,8 +32,8 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_TRAIL = gql`
-  mutation addTrail(
+export const SAVE_TRAIL = gql`
+  mutation saveTrail(
       $name: String!
       $description: String!
       $directions: String!
@@ -41,7 +41,7 @@ export const ADD_TRAIL = gql`
       $length: Number
       $rating: Number
   ) {
-    addTrail(
+    saveTrail(
       name: $name
       description: $description
       directions: $directions
