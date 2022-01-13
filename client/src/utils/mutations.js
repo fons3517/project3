@@ -31,3 +31,28 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const SAVE_TRAIL = gql`
+  mutation saveTrail(
+      $name: String!
+      $description: String!
+      $directions: String!
+      $difficulty: String!
+      $length: Number
+      $rating: Number
+  ) {
+    saveTrail(
+      name: $name
+      description: $description
+      directions: $directions
+      difficulty: $difficulty
+      length: $length
+      rating: $rating
+    ) {
+      token
+        user {
+          _id
+      }
+    }
+  }
+`;
