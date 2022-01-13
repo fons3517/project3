@@ -10,7 +10,7 @@
 
 ## Description:
 
-HikeIt is a hiking application that searches for trails
+HikeIt is a hiking application that allows you to search for hiking trails in your area. With HikeIt, you can add trails that you have either hiked or would like to hike to your user profile. HikeIt also allows you to track your workout data and save it to your account. HikeIt! A great and interactive way to stay active!
 
 ### Creators
 
