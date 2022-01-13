@@ -3,11 +3,12 @@ import { gql } from '@apollo/client';
 export const QUERY_TRAILS = gql`
   query getTrails {
     trails {
-      _id
+       _id
       name
-      location
-      distance
+      description
+      directions
       difficulty
+      length
       rating
     }
   }
@@ -18,9 +19,10 @@ export const QUERY_SINGLE_TRAIL = gql`
     trail(trailId: $trailId) {
       _id
       name
-      locatioin
-      distance
+      description
+      directions
       difficulty
+      length
       rating
     }
   }
