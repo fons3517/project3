@@ -1,4 +1,5 @@
-const { Schema } = require("mongoose");
+const mongoose = require("mongoose");
+const { Schema, model } = mongoose;
 
 const trailSchema = new Schema({
   name: [
@@ -28,4 +29,6 @@ const trailSchema = new Schema({
   },
 });
 
-module.exports = trailSchema;
+const Trail = mongoose.model("Trail", trailSchema)
+
+module.exports = Trail;
