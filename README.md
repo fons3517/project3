@@ -7,6 +7,7 @@
 - [Installation](#installation)
 - [Technologies_Used](#technologies_used)
 - [Media](#media)
+- [Contact_Info](#contact_info)
 
 ## Description:
 
