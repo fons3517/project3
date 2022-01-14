@@ -2,34 +2,58 @@ import React, { useState } from "react";
 import NavBar from "../components/navbar/NavBar";
 import Footer from "../components/footer/Footer";
 import "../Assets/styles/signup.scss";
-import { Form, Col, Button } from "react-bootstrap";
+import { Form, Col, Button, Alert } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
 
-function Signup(props) {
-  const [formState, setFormState] = useState({ email: "", password: "" });
-  const [addUser] = useMutation(ADD_USER);
+const SignupForm = () => {
+  // set initial form state
+  const [userFormData, setUserFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: ""
+  });
+  // set state for form validation
+  const [validated] = useState(false);
+  // set state for alert
+  const [showAlert, setShowAlert] = useState(false);
+
+  const [addUser, { error }] = useMutation(ADD_USER);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationResponse = await addUser({
-      variables: {
-        email: formState.email,
-        password: formState.password,
-        firstName: formState.firstName,
-        lastName: formState.lastName,
-      },
-    });
-    const token = mutationResponse.data.addUser.token;
-    Auth.login(token);
-  };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
+    // check if form has everything (as per react-bootstrap docs)
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    try {
+      const { data } = await addUser({
+        variables: { ...userFormData }
+      });
+
+      console.log(data);
+      Auth.login(data.addUser.token);
+    } catch (err) {
+      console.error(err);
+      setShowAlert(true);
+    }
+
+    setUserFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: ""
     });
   };
 
@@ -43,76 +67,101 @@ function Signup(props) {
               <h1 className="signup-title">Welcome to the world of hiking!</h1>
             </div>
             <div className="col-md-8  p-5">
-              <Form>
+              <Form
+                noValidate
+                validated={validated}
+                onSubmit={handleFormSubmit}
+              >
+                {/* show alert if server response is bad */}
+                <Alert
+                  dismissible
+                  onClose={() => setShowAlert(false)}
+                  show={showAlert}
+                  variant="danger"
+                >
+                  Something went wrong with your signup!
+                </Alert>
                 <Form.Row>
-                  <Form.Group as={Col} controlId="formGridFirstName">
-                    <Form.Label>First Name</Form.Label>
+                  <Form.Group as={Col}>
+                    <Form.Label htmlFor="firstName">First Name</Form.Label>
                     <Form.Control
                       name="firstName"
                       type="text"
                       placeholder="Enter Your First Name..."
-                      onChange={handleChange}
+                      onChange={handleInputChange}
+                      value={userFormData.firstName}
+                      required
                     />
+                    <Form.Control.Feedback type="invalid">
+                      First Name is required!
+                    </Form.Control.Feedback>
                   </Form.Group>
                 </Form.Row>
 
                 <Form.Row>
-                  <Form.Group as={Col} controlId="formGridLastName">
-                    <Form.Label>Last Name</Form.Label>
+                  <Form.Group as={Col}>
+                    <Form.Label htmlFor="lastName">Last Name</Form.Label>
                     <Form.Control
                       name="lastName"
                       type="text"
                       placeholder="Enter Your Last Name..."
-                      onChange={handleChange}
+                      onChange={handleInputChange}
+                      value={userFormData.lastName}
+                      required
                     />
+                    <Form.Control.Feedback type="invalid">
+                      Last Name is required!
+                    </Form.Control.Feedback>
                   </Form.Group>
                 </Form.Row>
 
                 <Form.Row>
-                  <Form.Group as={Col} controlId="formGridEmail">
-                    <Form.Label>Email</Form.Label>
+                  <Form.Group as={Col}>
+                    <Form.Label htmlFor="email">Email</Form.Label>
                     <Form.Control
                       name="email"
                       type="email"
                       placeholder="Enter Your Email..."
-                      onChange={handleChange}
-                      autoComplete="username"
+                      onChange={handleInputChange}
+                      value={userFormData.email}
+                      required
                     />
+                    <Form.Control.Feedback type="invalid">
+                      Email is required!
+                    </Form.Control.Feedback>
                   </Form.Group>
                 </Form.Row>
 
                 <Form.Row>
-                  <Form.Group as={Col} controlId="formGridPassword">
-                    <Form.Label>Password</Form.Label>
+                  <Form.Group as={Col}>
+                    <Form.Label htmlFor="password">Password</Form.Label>
                     <Form.Control
                       name="password"
                       type="password"
                       placeholder="Enter A Password..."
-                      onChange={handleChange}
-                      autoComplete="new-password"
+                      onChange={handleInputChange}
+                      value={userFormData.password}
+                      required
                     />
-                  </Form.Group>
-                </Form.Row>
-
-                <Form.Row>
-                  <Form.Group as={Col} controlId="formGridConfirmPassword">
-                    <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control
-                      name="passwordConfirm"
-                      type="password"
-                      placeholder="Please Confirm Password..."
-                      onChange={handleChange}
-                      autoComplete="new-password"
-                    />
+                    <Form.Control.Feedback type="invalid">
+                      Password is required!
+                    </Form.Control.Feedback>
                   </Form.Group>
                 </Form.Row>
 
                 <Button
-                  variant="primary"
+                  disabled={
+                    !(
+                      userFormData.firstName &&
+                      userFormData.lastName &&
+                      userFormData.email &&
+                      userFormData.password
+                    )
+                  }
                   type="submit"
-                  onClick={() => handleFormSubmit()}
+                  variant="success"
                 >
-                  Sign Up
+                  Submit
                 </Button>
               </Form>
             </div>
@@ -122,6 +171,6 @@ function Signup(props) {
       <Footer />
     </>
   );
-}
+};
 
-export default Signup;
+export default SignupForm;
