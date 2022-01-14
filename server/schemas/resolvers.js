@@ -24,7 +24,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addTrail: async (parent, args, context) => {
+    saveTrail: async (parent, args, context) => {
       console.log(context);
       if (context.user) {
         const trail = await Trail.findOne(params._id);
