@@ -1,9 +1,9 @@
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Logout from "../logout/Logout";
 import AppTitle from "../appTitle/AppTitle";
 import "../../Assets/styles/navbar.scss";
+import Auth from "../../utils/auth";
 
 /*
 this page will render all the navigation links when logged in..
@@ -13,7 +13,7 @@ it will just render Login, Signup, and Contact
 */
 
 const NavBar = () => {
-  if (localStorage.getItem("__token__")) {
+  if (Auth.loggedIn()) {
     return (
       <Navbar className="color-nav">
         <Navbar.Brand>
@@ -39,7 +39,9 @@ const NavBar = () => {
             <Link className="nav-link" to="/contact" alt="contact">
               Contact
             </Link>
-            <Logout />
+            <Link className="nav-link" to="/" onClick={() => Auth.logout()}>
+              Logout
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
