@@ -32,7 +32,7 @@ type Query {
 
 type Mutation {
   addUser(firstName: String!, lastName: String!, email: String!): Auth
-  addTrail(name: String!, description: String!, difficulty: String!, length: Int, rating: Int): Trail
+saveTrail(name: String!, directions: String!, description: String!, difficulty: String!, length: Number, rating: Number): Trail
   login(email: String!, password: String!): Auth
 }
 `;
