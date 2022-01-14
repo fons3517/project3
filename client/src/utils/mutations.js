@@ -10,13 +10,13 @@ export const LOGIN = gql`
         lastName
         email
         trails {
-          _id: ID
-          name: String
-          description: String
-          directions: String
-          difficulty: String
-          length: Int
-          rating: Int
+          _id
+          name
+          description
+          directions
+          difficulty
+          length
+          rating
         }
       }
     }
