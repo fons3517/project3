@@ -6,30 +6,47 @@ import Auth from "../utils/auth";
 import NavBar from "../components/navbar/NavBar";
 import Footer from "../components/footer/Footer";
 import "../Assets/styles/login.scss";
-import { Form, Col, Button } from "react-bootstrap";
+import { Form, Col, Button, Alert } from "react-bootstrap";
 
-function Login(props) {
-  const [formState, setFormState] = useState({ email: "", password: "" });
-  const [login, { error }] = useMutation(LOGIN);
+const LoginForm = () => {
+  const [userFormData, setUserFormData] = useState({ email: "", password: "" });
+  const [validated] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+
+  const [loginUser, { error }] = useMutation(LOGIN);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    try {
-      const mutationResponse = await login({
-        variables: { email: formState.email, password: formState.password },
-      });
-      const token = mutationResponse.data.login.token;
-      Auth.login(token);
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
+    // check if form has everything (as per react-bootstrap docs)
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    try {
+      const { data } = await loginUser({
+        variables: { ...userFormData }
+      });
+
+      console.log(data);
+      Auth.login(data.login.token);
+    } catch (err) {
+      console.error(err);
+      setShowAlert(true);
+    }
+
+    setUserFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: ""
     });
   };
 
@@ -44,36 +61,57 @@ function Login(props) {
                 <h1>Hike It Login</h1>
               </div>
               <div className="col-md-12 mt-2 mb-2">
-                <Form onSubmit={handleFormSubmit}>
+                <Form
+                  noValidate
+                  validated={validated}
+                  onSubmit={handleFormSubmit}
+                >
+                  <Alert
+                    dismissible
+                    onClose={() => setShowAlert(false)}
+                    show={showAlert}
+                    variant="danger"
+                  >
+                    Something went wrong with your login credentials!
+                  </Alert>
                   <Form.Row>
-                    <Form.Group as={Col} controlId="formGridEmail">
+                    <Form.Group as={Col}>
+                      <Form.Label htmlFor="email">Email</Form.Label>
                       <Form.Control
                         name="email"
-                        type="email"
+                        type="text"
                         placeholder="Enter your email..."
-                        onChange={handleChange}
-                        autoComplete="username"
+                        onChange={handleInputChange}
+                        value={userFormData.email}
+                        required
                       />
+                      <Form.Control.Feedback type="invalid">
+                        Email is required!
+                      </Form.Control.Feedback>
                     </Form.Group>
                   </Form.Row>
 
                   <Form.Row>
-                    <Form.Group as={Col} controlId="formGridPassword">
+                    <Form.Group as={Col}>
+                      <Form.Label htmlFor="password">Password</Form.Label>
                       <Form.Control
                         name="password"
                         type="password"
                         placeholder="Please enter your password..."
-                        onChange={handleChange}
-                        autoComplete="new-password"
+                        onChange={handleInputChange}
+                        value={userFormData.password}
+                        required
                       />
+                      <Form.Control.Feedback type="invalid">
+                        Password is required!
+                      </Form.Control.Feedback>
                     </Form.Group>
                   </Form.Row>
 
                   <Button
-                    variant="success"
+                    disabled={!(userFormData.email && userFormData.password)}
                     type="submit"
-                    style={{ width: "50%", fontWeight: "bolder" }}
-                    onClick={handleFormSubmit}
+                    variant="success"
                   >
                     Login
                   </Button>
@@ -95,6 +133,6 @@ function Login(props) {
       <Footer />
     </>
   );
-}
+};
 
-export default Login;
+export default LoginForm;
