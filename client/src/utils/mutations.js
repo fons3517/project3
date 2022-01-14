@@ -6,6 +6,18 @@ export const LOGIN = gql`
       token
       user {
         _id
+        firstName
+        lastName
+        email
+        trails {
+          _id: ID
+          name: String
+          description: String
+          directions: String
+          difficulty: String
+          length: Int
+          rating: Int
+        }
       }
     }
   }
@@ -27,6 +39,18 @@ export const ADD_USER = gql`
       token
       user {
         _id
+        firstName
+        lastName
+        email
+        trails {
+          _id
+          name
+          description
+          directions
+          difficulty
+          length
+          rating
+        }
       }
     }
   }
