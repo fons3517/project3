@@ -4,7 +4,7 @@ import "./Footer.scss";
 
 const Footer = () => {
   return (
-    <footer className="pt-5">
+    <footer className="pt-3">
       <div className="container-fluid text-center text-md-left">
         <div className="row mb-3">
           <div className="col-md-2" />
@@ -39,11 +39,9 @@ const Footer = () => {
         </div>
       </div>
       <div className="row text-center copyright">
-        <div className="col-lg-12 mt-5 mb-3">
+        <div className="col-lg-12 mt-3 mb-3">
           &copy; Copyright: 2022&nbsp;
-          <a href="https://github.com/fons3517/project3">
-            <p className="app-title">Hike It</p>
-          </a>
+          <a href="https://github.com/fons3517/project3"></a>
         </div>
       </div>
     </footer>

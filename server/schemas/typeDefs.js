@@ -13,10 +13,10 @@ type Trail {
   _id: ID
   name: String
   description: String
-  directions: String
-  difficulty: Number
-  length: Number
-  rating: Number
+  directions:String
+  difficulty:String
+  length:Int
+  rating:Int
 }
 
 type Auth {

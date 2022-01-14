@@ -2,7 +2,7 @@
   color: #000;
   padding: 0 !important;
   border-radius: 0 !important;
-  background-image: url("../images/mother-kid-hike.jpg");
+  background-image: url("../images/sunlight-wooded-hike.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -13,4 +13,10 @@
 .login-text {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 2rem;
+}
+
+.container-title {
+  font-weight: bolder;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
