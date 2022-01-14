@@ -1,7 +1,6 @@
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Logout from "../logout/Logout";
 import AppTitle from "../appTitle/AppTitle";
 import "../../Assets/styles/navbar.scss";
 import Auth from "../../utils/auth";
@@ -40,7 +39,9 @@ const NavBar = () => {
             <Link className="nav-link" to="/contact" alt="contact">
               Contact
             </Link>
-            <Logout />
+            <Link className="nav-link" to="/" onClick={() => Auth.logout()}>
+              Logout
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
