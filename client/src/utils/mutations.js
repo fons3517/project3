@@ -38,8 +38,8 @@ export const SAVE_TRAIL = gql`
     $description: String!
     $directions: String!
     $difficulty: String!
-    $length: Number
-    $rating: Number
+    $length: Int
+    $rating: Int
   ) {
     saveTrail(
       name: $name
@@ -48,9 +48,19 @@ export const SAVE_TRAIL = gql`
       difficulty: $difficulty
       length: $length
       rating: $rating
-    ) {
-      token
-      user {
+    ){
+      _id
+      firstName
+      lastName
+      email
+      trails {
+        _id: ID
+        name: String
+        description: String
+        directions:String
+        difficulty:String
+        length:Int
+        rating:Int
       }
     }
   }

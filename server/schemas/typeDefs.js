@@ -12,6 +12,11 @@ type User {
 type Trail {
   _id: ID
   name: String
+  description: String
+  directions:String
+  difficulty:String
+  length:Int
+  rating:Int
 }
 
 type Auth {
@@ -27,11 +32,7 @@ type Query {
 
 type Mutation {
   addUser(firstName: String!, lastName: String!, email: String!): Auth
-<<<<<<< HEAD
-  saveTrail(name: String!): Trail
-=======
-saveTrail(name: String!, description: String!, difficulty: String!, length: Number, rating: Number): Trail
->>>>>>> 1ee33d9fb84cc7b836e957942c4a171d43b2835a
+  addTrail(name: String!, description: String!, difficulty: String!, length: Int, rating: Int): Trail
   login(email: String!, password: String!): Auth
 }
 `;
