@@ -9,8 +9,28 @@
   background-position: center;
   max-width: 100% !important;
   min-height: 100vh;
+  justify-content: center;
 }
 .form-container {
   background-color: rgba(255, 255, 255, 0.2) !important;
   border-radius: 2rem;
+  width: 50%;
+}
+
+.signup-title {
+  font-weight: bolder;
+  font-size: 4rem;
+  color: #fff8ed;
+}
+
+.form-label {
+  color: #fff8ed;
+  font-weight: bolder;
+}
+
+@media (max-width: 900px) {
+  .signup-title {
+    font-weight: bolder;
+    font-size: 3.5rem;
+  }
 }
