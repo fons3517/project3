@@ -1,13 +1,12 @@
 import { gql } from "@apollo/client";
 
 export const GET_ME = gql`
-  query me {
+  query getMe {
     me {
       _id
       firstName
       lastName
       email
-      
       trails {
         trailId
         name
