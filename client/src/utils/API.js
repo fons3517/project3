@@ -28,7 +28,7 @@ export const loginUser = (userData) => {
 };
 export const searchTrailApi = (lat, lon) => {
   return fetch(
-    `https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat${lat}=&lon=${lon}`,
+    `https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=${lat}&lon=${lon}`,
     {
       method: "GET",
       headers: {
