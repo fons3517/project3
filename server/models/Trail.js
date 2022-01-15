@@ -32,7 +32,7 @@ const trailSchema = new Schema({
     type: String,
   },
   rating: {
-    type: Int,
+    type: Number,
   },
 });
 
