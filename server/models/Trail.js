@@ -23,7 +23,10 @@ const trailSchema = new Schema({
     type: String,
     required: true,
   },
-  difficulty: { type: String, required: true },
+  difficulty: {
+    type: String,
+    required: true
+  },
   length: {
     type: String,
   },

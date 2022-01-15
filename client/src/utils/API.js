@@ -26,3 +26,15 @@ export const loginUser = (userData) => {
     body: JSON.stringify(userData),
   });
 };
+export const searchTrailApi = (lat, lon) => {
+  return fetch(
+    `https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat${lat}=&lon=${lon}`,
+    {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "trailapi-trailapi.p.rapidapi.com",
+        "x-rapidapi-key": `${process.env.trailkey}`,
+      },
+    }
+  );
+};

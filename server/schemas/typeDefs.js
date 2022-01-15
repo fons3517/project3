@@ -13,10 +13,10 @@ type Trail {
   _id: ID
   name: String
   description: String
-  directions:String
-  difficulty:String
-  length:Int
-  rating:Int
+  directions: String
+  difficulty: String
+  length: String
+  rating: Int
 }
 
 type Auth {
@@ -25,15 +25,17 @@ type Auth {
 }
 
 type Query {
-  user: User
+  me: User
   trails: [Trail]
   trail(_id: ID!): Trail
 }
 
 type Mutation {
-  addUser(firstName: String!, lastName: String!, email: String!,password: String!): Auth
-  saveTrail(name: String!, directions: String!, description: String!, difficulty: String!, length: Int, rating: Int): Trail
+  addUser(firstName: String!, lastName: String!, email: String!): Auth
+  updateUser(firstName: String, lastName: String, email: String, trails: [Trail]): User
+  saveTrail(name: String!, directions: String!, description: String!, difficulty: String!, length: String, rating: Int): Trail
   login(email: String!, password: String!): Auth
+  
 }
 `;
 module.exports = typeDefs;
