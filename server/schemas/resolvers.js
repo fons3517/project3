@@ -36,12 +36,28 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addTrail: async (parent, args, context) => {
+    saveTrail: async (parent, args, context) => {
       console.log(context);
       if (context.user) {
-        const trail = await Trail.findOne(params._id);
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: user._id },
+          { $addToSet: { trails: trail } },
+          { new: true }
+        );
+        return updatedUser;
       }
-      return trail;
+      throw new AuthenticationError("Oops! Please login!");
+    },
+    removeTrail: async (parent, args, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: user._id },
+          { $pull: { trails: { trailId: trailId } } },
+          { new: true }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError("Oops! Please login!");
     },
   },
 };
