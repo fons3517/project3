@@ -48,3 +48,31 @@ export const QUERY_SINGLE_TRAIL = gql`
     }
   }
 `;
+
+export const QUERY_HIKES = gql`
+  query getHikes {
+    hikes {
+      trailId
+      name
+      description
+      difficulty
+      length
+      rating
+    }
+  }
+`;
+
+export const QUERY_SINGLE_HIKE = gql`
+  query getSingleHike($trailId: ID!) {
+    hike(trailId: $trailId) {
+      trailId
+      name
+      description
+      directions
+      difficulty
+      length
+      rating
+    }
+  }
+`;
+
