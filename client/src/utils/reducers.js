@@ -19,7 +19,7 @@ export const reducer = (state, action) => {
     case SAVE_TRAIL:
       return {
         ...state,
-        trails: [...action.trail],
+        trails: [...action.trails],
       };
 
     case REMOVE_TRAIL:
@@ -32,7 +32,7 @@ export const reducer = (state, action) => {
       };
     default:
       return state;
-  }
+  };
 };
 
 export function useProductReducer(initialState) {
