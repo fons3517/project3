@@ -1,6 +1,6 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { User, Trail } = require('../models');
-const { signToken } = require('../utils/auth');
+const { AuthenticationError } = require("apollo-server-express");
+const { User, Trail } = require("../models");
+const { signToken } = require("../utils/auth");
 
 // Set-up Stripe for future development
 // const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc);
@@ -16,7 +16,7 @@ const resolvers = {
         return userData;
       }
       throw new AuthenticationError("You need to be logged in!");
-    }
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -26,29 +26,40 @@ const resolvers = {
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-
       if (!user) {
-        throw new AuthenticationError("No user found with this email address");
+        throw new AuthenticationError("Uh oh! Incorrect email or password.");
       }
-
-      const correctPw = await user.isCorrectPassword(password);
-
-      if (!correctPw) {
-        throw new AuthenticationError("Incorrect credentials");
+      const correctPassword = await user.isCorrectPassword(password);
+      if (!correctPassword) {
+        throw new AuthenticationError("Uh oh! Incorrect email or password.");
       }
-
       const token = signToken(user);
-
       return { token, user };
     },
     saveTrail: async (parent, args, context) => {
       console.log(context);
       if (context.user) {
-        const trail = await Trail.findOne(params._id);
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: user._id },
+          { $addToSet: { trails: trail } },
+          { new: true }
+        );
+        return updatedUser;
       }
-      return trail;
-    }
-  }
+      throw new AuthenticationError("Oops! Please login!");
+    },
+    removeTrail: async (parent, args, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: user._id },
+          { $pull: { trails: { trailId: trailId } } },
+          { new: true }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError("Oops! Please login!");
+    },
+  },
 };
 
 module.exports = resolvers;
