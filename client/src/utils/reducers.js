@@ -15,6 +15,7 @@ export const reducer = (state, action) => {
         user: [...action.trails],
       };
 
+
     case SAVE_TRAIL:
       return {
         ...state,
@@ -29,6 +30,8 @@ export const reducer = (state, action) => {
         ...state,
         trail: newState
       };
+    default:
+      return state;
   }
 };
 
