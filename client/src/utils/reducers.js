@@ -28,7 +28,7 @@ export const reducer = (state, action) => {
       })
       return {
         ...state,
-        trail: newState
+        trails: newState
       };
     default:
       return state;

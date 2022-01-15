@@ -11,10 +11,9 @@ import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import MyHikes from "./pages/MyHikes";
-import MyTrails from "./pages/MyTrails";
+import SavedTrails from "./pages/SavedTrails";
 import FindAHike from "./pages/FindAHike";
 import Contact from "./pages/Contact";
-import Profile from "./pages/Profile";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -49,9 +48,8 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/myhikes" component={MyHikes} />
-          <Route exact path="/mytrails" component={MyTrails} />
+          <Route exact path="/savedtrails" component={SavedTrails} />
           <Route exact path="/findahike" component={FindAHike} />
-          <Route exact path="./profile" component={Profile} />
           <Route exact path="/contact" component={Contact} />
         </Switch>
       </Router>

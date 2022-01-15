@@ -1,9 +1,30 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
+
+export const GET_ME = gql`
+  query me {
+    me {
+      _id
+      firstName
+      lastName
+      email
+      
+      saveTrails {
+        trailId
+        name
+        description
+        directions
+        difficulty
+        length
+        rating
+      }
+    }
+  }
+`;
 
 export const QUERY_TRAILS = gql`
   query getTrails {
     trails {
-       _id
+      _id
       name
       description
       directions

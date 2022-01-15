@@ -1,7 +1,7 @@
 .contact-container {
   color: #000;
   border-radius: 0 !important;
-  background-image: url("../images/mountain-greenery.jpg");
+  background-image: url("../images/mountain-top.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -16,4 +16,18 @@
 
 .border-radius-top {
   border-radius: 2rem 2rem 0 0;
+}
+
+h1 {
+  font-size: 5px;
+  font-weight: bolder;
+  color: black;
+}
+
+h3 {
+  font-weight: bolder;
+}
+
+a {
+  margin-right: 0.5rem;
 }
