@@ -27,8 +27,8 @@ const NavBar = () => {
             <Link className="nav-link" to="/myHikes" alt="home">
               My Hikes
             </Link>
-            <Link className="nav-link" to="/myTrails" alt="trails">
-              My Trails
+            <Link className="nav-link" to="/savedTrails" alt="trails">
+              Saved Trails
             </Link>
             <Link className="nav-link" to="/findAHike" alt="find">
               Find A Hike
