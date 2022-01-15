@@ -8,7 +8,7 @@ export const GET_ME = gql`
       lastName
       email
       
-      saveTrails {
+      trails {
         trailId
         name
         description
@@ -24,7 +24,7 @@ export const GET_ME = gql`
 export const QUERY_TRAILS = gql`
   query getTrails {
     trails {
-      _id
+      trailId
       name
       description
       directions
@@ -38,7 +38,7 @@ export const QUERY_TRAILS = gql`
 export const QUERY_SINGLE_TRAIL = gql`
   query getSingleTrail($trailId: ID!) {
     trail(trailId: $trailId) {
-      _id
+      trailId
       name
       description
       directions

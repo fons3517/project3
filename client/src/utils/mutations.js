@@ -62,7 +62,7 @@ export const SAVE_TRAIL = gql`
     $description: String!
     $directions: String!
     $difficulty: String!
-    $length: Int
+    $length: String!
     $rating: Int
   ) {
     saveTrail(
