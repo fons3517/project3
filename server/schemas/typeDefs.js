@@ -40,31 +40,11 @@ const typeDefs = gql`
     trail(_id: ID!): Trail
   }
 
-  type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!): Auth
-    updateUser(
-      firstName: String
-      lastName: String
-      email: String
-      trails: [TrailInput]
-    ): User
-    saveTrail(
-      name: String!
-      directions: String!
-      description: String!
-      difficulty: String!
-      length: String
-      rating: Int
-    ): Trail
-    login(email: String!, password: String!): Auth
-    removeTrail(
-      name: String!
-      directions: String!
-      description: String!
-      difficulty: String!
-      length: String
-      rating: Int
-    ): Trail
-  }
+type Mutation {
+  addUser(firstName: String!, lastName: String!, email: String!): Auth
+  addHike($trail: [trailInput]): User
+  saveTrail($trail: trailInput): Trail
+  login(email: String!, password: String!): Auth
+}
 `;
 module.exports = typeDefs;

@@ -2,14 +2,13 @@ import { useReducer } from "react";
 import {
   SAVE_TRAIL,
   REMOVE_TRAIL,
-  UPDATE_USER,
-
+  ADD_HIKE,
 } from "./actions";
 
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case UPDATE_USER:
+    case ADD_HIKE:
       return {
         ...state,
         user: [...action.trails],

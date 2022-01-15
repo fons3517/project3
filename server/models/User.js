@@ -23,7 +23,8 @@ const userSchema = new Schema({
     required: true,
     minLenth: 8,
   },
-  trails: [Trail.schema],
+  trails: [{ type: Schema.Types.ObjectId, ref: "Trail" }],
+  hikes: [{ type: Schema.Types.ObjectId, ref: "Hike" }]
 });
 
 // pre-save middleware to create password

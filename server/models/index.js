@@ -1,3 +1,4 @@
 const User = require("./User");
 const Trail = require("./Trail");
-module.exports = { User, Trail };
+const Hike = require("./Hike")
+module.exports = { User, Trail, Hike };

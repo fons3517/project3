@@ -36,7 +36,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    saveTrail: async (parent, args, context) => {
+    saveTrail: async (parent, { trail }, context) => {
       console.log(context);
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
@@ -59,7 +59,21 @@ const resolvers = {
       }
       throw new AuthenticationError("Oops! Please login!");
     },
-  },
+    addHike: async (parent, { trail }, context) => {
+      console.log(context);
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: user._id },
+          { $addToSet: { hikes: trail } },
+          { new: true }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError("Oops! Please login!");
+    },
+
+  }
+},
 };
 
 module.exports = resolvers;
