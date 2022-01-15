@@ -21,7 +21,7 @@ const hikeSchema = new Schema({
     type: String,
   },
   rating: {
-    type: Int,
+    type: Number,
   },
 });
 
