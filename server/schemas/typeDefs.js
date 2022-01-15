@@ -30,10 +30,19 @@ type Query {
   trail(_id: ID!): Trail
 }
 
+input trailInput(
+  name: String
+  directions: String
+  description: String
+  difficulty: String
+  length: String
+  rating: Int
+)
+
 type Mutation {
   addUser(firstName: String!, lastName: String!, email: String!): Auth
-  updateUser(firstName: String, lastName: String, email: String, trails: [Trail]): User
-  saveTrail(name: String!, directions: String!, description: String!, difficulty: String!, length: String, rating: Int): Trail
+  addHike($trail: [trailInput]): User
+  saveTrail($trail: trailInput): Trail
   login(email: String!, password: String!): Auth
   
 }

@@ -80,3 +80,30 @@ export const SAVE_TRAIL = gql`
     }
   }
 `;
+
+export const ADD_HIKE = gql`
+  mutation addHike(
+    $name: String!
+    $description: String!
+    $difficulty: String!
+    $length: String!
+    $rating: Int
+    ) {
+      addHike(
+        name: $name
+        description: $description
+        difficulty: $difficulty
+        length: $length
+        rating: $rating
+      ) token{
+        user{
+          _id
+          name
+          description
+          difficulty
+          length
+          rating
+        }
+      }
+    }
+`;
