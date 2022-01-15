@@ -42,9 +42,10 @@ const typeDefs = gql`
 
 type Mutation {
   addUser(firstName: String!, lastName: String!, email: String!): Auth
-  addHike($trail: [trailInput]): User
-  saveTrail($trail: trailInput): Trail
+  addHike(trail: [TrailInput]): User
+  saveTrail(trail: [TrailInput]): Trail
   login(email: String!, password: String!): Auth
+  removeTrail(trail: [TrailInput]): Trail
 }
 `;
 module.exports = typeDefs;
