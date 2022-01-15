@@ -4,15 +4,18 @@ export const GET_ME = gql`
   query me {
     me {
       _id
-      name
+      firstName
+      lastName
       email
-      bookCount
-      savedTrailss {
+      
+      saveTrails {
         trailId
         name
         description
-        image
-        link
+        directions
+        difficulty
+        length
+        rating
       }
     }
   }

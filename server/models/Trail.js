@@ -2,19 +2,20 @@ const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
 const trailSchema = new Schema({
-  name: [
-    {
-      type: String,
-    },
-  ],
+  trailId: {
+    type: String,
+    required: true,
+  },
+  name: {
+    type: String,
+  },
   description: {
     type: String,
     required: true,
   },
-  directions: { type: String, required: true },
-  trailId: {
+  directions: {
     type: String,
-    required: true,
+    required: true
   },
   lat: {
     type: String,
@@ -29,6 +30,9 @@ const trailSchema = new Schema({
   },
   length: {
     type: String,
+  },
+  rating: {
+    type: Int,
   },
 });
 
