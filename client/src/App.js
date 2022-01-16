@@ -10,7 +10,7 @@ import { setContext } from "@apollo/client/link/context";
 import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import MyHikes from "./pages/MyHikes";
+import Home from "./pages/Home";
 import SavedTrails from "./pages/SavedTrails";
 import FindAHike from "./pages/FindAHike";
 import Contact from "./pages/Contact";
@@ -47,7 +47,7 @@ function App() {
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
-          <Route exact path="/myhikes" component={MyHikes} />
+          <Route exact path="/home" component={Home} />
           <Route exact path="/savedtrails" component={SavedTrails} />
           <Route exact path="/findahike" component={FindAHike} />
           <Route exact path="/contact" component={Contact} />
