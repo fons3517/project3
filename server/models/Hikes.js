@@ -8,6 +8,7 @@ const hikeSchema = new Schema({
   },
   name: {
     type: String,
+    required: true,
   },
   description: {
     type: String,
