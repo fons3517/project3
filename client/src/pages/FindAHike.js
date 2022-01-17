@@ -12,13 +12,10 @@ import NavBar from "../components/navbar/NavBar";
 import Footer from "../components/footer/Footer";
 import { locationApi } from "../utils/API";
 import { searchTrailApi } from "../utils/API";
-//import Auth from "../utils/auth";
-// dont know name of API search variable, we will need to revisit this
-// import { searchHikingTrails } from "../utils/API";
-// // don't know what we are calling these yet, will need to revisit to confirm naming conventions
-// import { saveTrailIds, getSavedTrailIds } from "../utils/localStorage";
-// import { useMutation } from "../utils/mutations";
-// import { SAVE_TRAIL } from "../utils/mutations";
+import Auth from "../utils/auth";
+import { saveTrailIds, getSavedTrailIds } from "../utils/localStorage";
+import { useMutation } from "@apollo/client";
+import { SAVE_TRAIL } from "../utils/mutations";
 // import "../Assets/styles/findahike.scss";
 
 const FindAHike = () => {
@@ -28,15 +25,15 @@ const FindAHike = () => {
   const [searchInput, setSearchInput] = useState("");
 
   //create state to hold save trailId values
-  //const [savedTrailIds, setSavedTrailIds] = useState(getSavedTrailIds());
+  const [savedTrailIds, setSavedTrailIds] = useState(getSavedTrailIds());
 
-  //const [saveTrail, { error }] = useMutation(SAVE_TRAIL);
+  const [saveTrail, { error }] = useMutation(SAVE_TRAIL);
 
   // set up useEffect hook to save `savedTrailIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
-  //useEffect(() => {
-  //return () => saveTrailIds(savedTrailIds);
-  //});
+  useEffect(() => {
+    return () => saveTrailIds(savedTrailIds);
+  });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -51,7 +48,7 @@ const FindAHike = () => {
         throw new Error("something went wrong!");
       }
 
-      const location= await responseLocation.json();
+      const location = await responseLocation.json();
       console.log(location);
       const latLocation = location.coord["lat"];
       const lonLocation = location.coord["lon"];
@@ -61,8 +58,8 @@ const FindAHike = () => {
         throw new Error("something went wrong!");
       }
 
-      const itemsObj= await response.json();
-      const items = itemsObj.data
+      const itemsObj = await response.json();
+      const items = itemsObj.data;
       const trailData = items.map((trail) => ({
         // This would need to be reviewed for proper naming constructs
         trailId: trail.id,
@@ -83,36 +80,37 @@ const FindAHike = () => {
     }
   };
 
-  // create function to handle saving a book to our database
-  // const handleSaveTrail = async (trailId) => {
-  //   // find the book in `searchedTrails` state by the matching id
-  //   const trailToSave = searchedTrails.find(
-  //     (trail) => trail.trailId === trailId
-  //   );
+  // create function to handle saving a trail to our database
+  const handleSaveTrail = async (trailId) => {
+    console.log(trailId);
+    // find the trail in `searchedTrails` state by the matching id
+    const trailToSave = searchedTrails.find(
+      (trail) => trail.trailId === trailId
+    );
+    console.log(trailToSave);
+    // get token
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    console.log(trailToSave);
+    if (!token) {
+      return false;
+    }
 
-  //   // get token
-  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
+    try {
+      const { data } = await saveTrail({
+        variables: { input: trailToSave }
+      });
+      if (error) {
+        console.log("error");
+        throw new Error("Something went wrong!");
+      }
 
-  //   if (!token) {
-  //     return false;
-  //   }
-
-  //   try {
-  //     // SAVE_BOOK mutation gets used here
-  //     await saveTrail({
-  //       variables: { input: trailToSave },
-  //     });
-
-  //     if (error) {
-  //       throw new Error("something went wrong!");
-  //     }
-
-  //     // if book successfully saves to user's account, save book id to state
-  //     setSavedTrailIds([...savedTrailIds, trailToSave.bookId]);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  //};
+      console.log("trails:", data);
+      // if trail successfully saves to user's account, save book id to state
+      setSavedTrailIds([...savedTrailIds, trailToSave.trailId]);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <>
@@ -170,6 +168,21 @@ const FindAHike = () => {
                   <Card.Text>Rating: {trail.rating}</Card.Text>
                   <Card.Text>Difficulty: {trail.difficulty}</Card.Text>
                   <Card.Text>Directions: {trail.directions}</Card.Text>
+                  {Auth.loggedIn() && (
+                    <Button
+                      disabled={savedTrailIds?.some(
+                        (savedTrailId) => savedTrailId === trail.trailId
+                      )}
+                      className="btn-block btn-info"
+                      onClick={() => handleSaveTrail(trail.trailId)}
+                    >
+                      {savedTrailIds?.some(
+                        (savedTrailId) => savedTrailId === trail.trailId
+                      )
+                        ? "This trail has already been saved!"
+                        : "Save this Trail!"}
+                    </Button>
+                  )}
                 </Card.Body>
               </Card>
             );
