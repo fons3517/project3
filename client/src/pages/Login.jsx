@@ -73,7 +73,9 @@ const LoginForm = () => {
                   </Alert>
                   <Form.Row>
                     <Form.Group as={Col}>
-                      <Form.Label htmlFor="email">Email</Form.Label>
+                      <Form.Label htmlFor="email" className="text-dark">
+                        Email
+                      </Form.Label>
                       <Form.Control
                         name="email"
                         type="text"
@@ -90,7 +92,9 @@ const LoginForm = () => {
 
                   <Form.Row>
                     <Form.Group as={Col}>
-                      <Form.Label htmlFor="password">Password</Form.Label>
+                      <Form.Label htmlFor="password" className="text-dark">
+                        Password
+                      </Form.Label>
                       <Form.Control
                         name="password"
                         type="password"
