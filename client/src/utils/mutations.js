@@ -75,7 +75,7 @@ export const SAVE_TRAIL = gql`
         difficulty
         length
         rating
-        link
+        url
         img
       }
     }
