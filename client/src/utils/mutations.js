@@ -108,3 +108,25 @@ export const ADD_HIKE = gql`
       }
     }
 `;
+
+export const REMOVE_TRAIL = gql`
+  mutation removeTrail($trailId: Int!) {
+    removeTrail(trailId: $trailId) {
+      _id
+      firstName
+      lastName
+      email
+      trails {
+        trailId
+        name
+        description
+        directions
+        difficulty
+        length
+        rating
+        link
+        img
+      }
+    }
+  }
+`; 
