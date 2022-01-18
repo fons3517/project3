@@ -10,13 +10,15 @@ export const LOGIN = gql`
         lastName
         email
         trails {
-          _id
+          trailId
           name
           description
           directions
           difficulty
           length
           rating
+          url
+          img
         }
       }
     }
@@ -43,13 +45,15 @@ export const ADD_USER = gql`
         lastName
         email
         trails {
-          _id
+          trailId
           name
           description
           directions
           difficulty
           length
           rating
+          url
+          img
         }
       }
     }
@@ -57,25 +61,22 @@ export const ADD_USER = gql`
 `;
 
 export const SAVE_TRAIL = gql`
-  mutation saveTrail(
-    $name: String!
-    $description: String!
-    $directions: String!
-    $difficulty: String!
-    $length: String!
-    $rating: Int
-  ) {
-    saveTrail(
-      name: $name
-      description: $description
-      directions: $directions
-      difficulty: $difficulty
-      length: $length
-      rating: $rating
-    ) {
-      token
-      user {
-        _id
+  mutation saveTrail($input: [TrailInput]) {
+    saveTrail(input: $input) {
+      _id
+      firstName
+      lastName
+      email
+      trails {
+        trailId
+        name
+        description
+        directions
+        difficulty
+        length
+        rating
+        url
+        img
       }
     }
   }
@@ -107,3 +108,25 @@ export const ADD_HIKE = gql`
       }
     }
 `;
+
+export const REMOVE_TRAIL = gql`
+  mutation removeTrail($trailId: Int!) {
+    removeTrail(trailId: $trailId) {
+      _id
+      firstName
+      lastName
+      email
+      trails {
+        trailId
+        name
+        description
+        directions
+        difficulty
+        length
+        rating
+        url
+        img
+      }
+    }
+  }
+`; 

@@ -15,7 +15,7 @@ it will just render Login, Signup, and Contact
 const NavBar = () => {
   if (Auth.loggedIn()) {
     return (
-      <Navbar className="color-nav">
+      <Navbar className="color-nav" expand="lg">
         <Navbar.Brand>
           <Link to="/home">
             <AppTitle />

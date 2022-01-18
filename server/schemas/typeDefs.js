@@ -10,23 +10,27 @@ const typeDefs = gql`
   }
 
   type Trail {
-    _id: ID
+    trailId: Int
     name: String
     description: String
     directions: String
     difficulty: String
     length: String
     rating: Int
+    url: String
+    img: String
   }
 
   input TrailInput {
-    _id: ID
+    trailId: Int
     name: String
     description: String
     directions: String
     difficulty: String
     length: String
     rating: Int
+    url: String
+    img: String
   }
 
   type Auth {
@@ -35,17 +39,17 @@ const typeDefs = gql`
   }
 
   type Query {
-    user: User
+    me: User
     trails: [Trail]
     trail(_id: ID!): Trail
   }
 
-type Mutation {
-  addUser(firstName: String!, lastName: String!, email: String!): Auth
-  addHike(trail: [TrailInput]): User
-  saveTrail(trail: [TrailInput]): Trail
-  login(email: String!, password: String!): Auth
-  removeTrail(trail: [TrailInput]): Trail
-}
+  type Mutation {
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    addHike(trail: [TrailInput]): User
+    saveTrail(input: [TrailInput]): User
+    login(email: String!, password: String!): Auth
+    removeTrail(trailId: Int!): User
+  }
 `;
 module.exports = typeDefs;

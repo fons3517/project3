@@ -7,7 +7,7 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    user: async (parent, args, context) => {
+    me: async (parent, args, context) => {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id }).select(
           "-__v -password"
@@ -16,7 +16,7 @@ const resolvers = {
         return userData;
       }
       throw new AuthenticationError("You need to be logged in!");
-    },
+    }
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -36,23 +36,22 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    saveTrail: async (parent, { trail }, context) => {
-      console.log(context);
+    saveTrail: async (parent, { input }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
-          { _id: user._id },
-          { $addToSet: { trails: trail } },
-          { new: true }
+          { _id: context.user._id },
+          { $addToSet: { trails: input } },
+          { new: true, runValidators: true }
         );
         return updatedUser;
       }
       throw new AuthenticationError("Oops! Please login!");
     },
-    removeTrail: async (parent, args, context) => {
+    removeTrail: async (parent, { trailId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
-          { _id: user._id },
-          { $pull: { trails: { trailId: trailId } } },
+          { _id: context.user._id },
+          { $pull: { trails: { trailId } } },
           { new: true }
         );
         return updatedUser;
@@ -70,8 +69,7 @@ const resolvers = {
         return updatedUser;
       }
       throw new AuthenticationError("Oops! Please login!");
-    },
-
+    }
   }
 };
 
