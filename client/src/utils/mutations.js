@@ -124,7 +124,7 @@ export const REMOVE_TRAIL = gql`
         difficulty
         length
         rating
-        link
+        url
         img
       }
     }

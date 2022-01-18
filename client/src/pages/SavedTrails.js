@@ -80,7 +80,7 @@ const SavedTrails = () => {
                 <Card.Body>
                   <Card.Title>
                     <a
-                      href={trail.link}
+                      href={trail.url}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
