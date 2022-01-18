@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const GET_ME = gql`
-  query getMe {
+  {
     me {
       _id
       firstName
@@ -78,4 +78,3 @@ export const QUERY_SINGLE_HIKE = gql`
     }
   }
 `;
-

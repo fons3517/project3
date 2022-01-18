@@ -8,8 +8,6 @@ import {
   Card,
   CardColumns
 } from "react-bootstrap";
-import NavBar from "../components/navbar/NavBar";
-import Footer from "../components/footer/Footer";
 import { locationApi } from "../utils/API";
 import { searchTrailApi } from "../utils/API";
 import Auth from "../utils/auth";
@@ -111,11 +109,22 @@ const FindAHike = () => {
       console.error(err);
     }
   };
+  // remove the <br /> from description and direction from the trail information
+  function removeBr(info) {
+    let firstSplit = info.split("<br />");
+    let firstJoin = firstSplit.join("");
+    let secondSplit = firstJoin.split("  ");
+    let secondJoin = secondSplit.join("");
+    return secondJoin;
+  }
 
   return (
     <>
-      <NavBar />
-      <Jumbotron fluid className="text-light bg-dark">
+      <Jumbotron
+        fluid
+        className="text-light"
+        style={{ backgroundColor: "#fff8ed" }}
+      >
         <Container>
           <h1>Search For Trails To Hike!</h1>
           <Form onSubmit={handleFormSubmit}>
@@ -163,11 +172,11 @@ const FindAHike = () => {
                       {trail.name}
                     </a>
                   </Card.Title>
-                  <Card.Text>Description: {trail.description}</Card.Text>
+                  <Card.Text>Description: {removeBr(trail.description)}</Card.Text>
                   <Card.Text>Length: {trail.length}</Card.Text>
                   <Card.Text>Rating: {trail.rating}</Card.Text>
                   <Card.Text>Difficulty: {trail.difficulty}</Card.Text>
-                  <Card.Text>Directions: {trail.directions}</Card.Text>
+                  <Card.Text>Directions: {removeBr(trail.directions)}</Card.Text>
                   {Auth.loggedIn() && (
                     <Button
                       disabled={savedTrailIds?.some(
@@ -189,7 +198,6 @@ const FindAHike = () => {
           })}
         </CardColumns>
       </Container>
-      <Footer />
     </>
   );
 };

@@ -1,10 +1,15 @@
 import React from "react";
 import AppTitle from "../appTitle/AppTitle";
 import "./Footer.scss";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+
+library.add(faGithub);
 
 const Footer = () => {
   return (
-    <footer className="pt-3">
+    <footer className="pt-3 mt-auto">
       <div className="container-fluid text-center text-md-left">
         <div className="row mb-3">
           <div className="col-md-2" />
@@ -41,7 +46,11 @@ const Footer = () => {
       <div className="row text-center copyright">
         <div className="col-lg-12 mt-3 mb-3">
           &copy; Copyright: 2022&nbsp;
-          <a href="https://github.com/fons3517/project3"></a>
+          <a href="https://github.com/fons3517/project3">
+            <FontAwesomeIcon
+              icon={faGithub}
+            />
+          </a>
         </div>
       </div>
     </footer>
