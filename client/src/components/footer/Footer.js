@@ -49,7 +49,6 @@ const Footer = () => {
           <a href="https://github.com/fons3517/project3">
             <FontAwesomeIcon
               icon={faGithub}
-              size="1.5x"
             />
           </a>
         </div>
