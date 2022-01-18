@@ -3,7 +3,7 @@ const { Schema, model } = mongoose;
 
 const trailSchema = new Schema({
   trailId: {
-    type: String,
+    type: Number,
     required: true,
   },
   name: {
@@ -11,22 +11,12 @@ const trailSchema = new Schema({
   },
   description: {
     type: String,
-    required: true,
   },
   directions: {
     type: String,
-    required: true
-  },
-  lat: {
-    type: String,
-  },
-  lon: {
-    type: String,
-    required: true,
   },
   difficulty: {
     type: String,
-    required: true
   },
   length: {
     type: String,
@@ -34,8 +24,12 @@ const trailSchema = new Schema({
   rating: {
     type: Number,
   },
+  link: {
+    type: String
+  },
+  img: {
+    type:String
+  }
 });
 
-const Trail = mongoose.model("Trail", trailSchema)
-
-module.exports = Trail;
+module.exports = trailSchema;
