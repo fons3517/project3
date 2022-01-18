@@ -16,7 +16,7 @@ const resolvers = {
         return userData;
       }
       throw new AuthenticationError("You need to be logged in!");
-    },
+    }
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -47,11 +47,11 @@ const resolvers = {
       }
       throw new AuthenticationError("Oops! Please login!");
     },
-    removeTrail: async (parent, args, context) => {
+    removeTrail: async (parent, { trailId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
-          { _id: user._id },
-          { $pull: { trails: { trailId: trailId } } },
+          { _id: context.user._id },
+          { $pull: { trails: { trailId } } },
           { new: true }
         );
         return updatedUser;
@@ -69,8 +69,7 @@ const resolvers = {
         return updatedUser;
       }
       throw new AuthenticationError("Oops! Please login!");
-    },
-
+    }
   }
 };
 
