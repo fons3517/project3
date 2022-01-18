@@ -7,7 +7,7 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    user: async (parent, args, context) => {
+    me: async (parent, args, context) => {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id }).select(
           "-__v -password"
@@ -36,13 +36,12 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    saveTrail: async (parent, { trail }, context) => {
-      console.log(context);
+    saveTrail: async (parent, { input }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
-          { _id: user._id },
-          { $addToSet: { trails: trail } },
-          { new: true }
+          { _id: context.user._id },
+          { $addToSet: { trails: input } },
+          { new: true, runValidators: true }
         );
         return updatedUser;
       }
