@@ -17,15 +17,15 @@ const NavBar = () => {
     return (
       <Navbar className="color-nav" expand="lg">
         <Navbar.Brand>
-          <Link to="/myhikes">
+          <Link to="/home">
             <AppTitle />
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Link className="nav-link" to="/myHikes" alt="home">
-              My Hikes
+            <Link className="nav-link" to="/home" alt="home">
+              Home
             </Link>
             <Link className="nav-link" to="/savedTrails" alt="trails">
               Saved Trails
