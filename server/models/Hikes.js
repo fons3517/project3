@@ -3,7 +3,7 @@ const { Schema, model } = mongoose;
 
 const hikeSchema = new Schema({
   trailId: {
-    type: String,
+    type: Number,
     required: true,
   },
   name: {
