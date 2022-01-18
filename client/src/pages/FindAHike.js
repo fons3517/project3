@@ -68,7 +68,7 @@ const FindAHike = () => {
         directions: trail.directions,
         difficulty: trail.difficulty,
         length: trail.length,
-        rating: trail.rating,
+        rating: Math.round(trail.rating),
         url: trail.url,
         img: trail.thumbnail
       }));
