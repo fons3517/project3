@@ -8,8 +8,6 @@ import {
   Card,
   CardColumns
 } from "react-bootstrap";
-import NavBar from "../components/navbar/NavBar";
-import Footer from "../components/footer/Footer";
 import { locationApi } from "../utils/API";
 import { searchTrailApi } from "../utils/API";
 import Auth from "../utils/auth";
@@ -114,7 +112,6 @@ const FindAHike = () => {
 
   return (
     <>
-      <NavBar />
       <Jumbotron fluid className="text-light bg-dark">
         <Container>
           <h1>Search For Trails To Hike!</h1>
@@ -189,7 +186,6 @@ const FindAHike = () => {
           })}
         </CardColumns>
       </Container>
-      <Footer />
     </>
   );
 };

@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import NavBar from "../components/navbar/NavBar";
-import Footer from "../components/footer/Footer";
 import "../Assets/styles/signup.scss";
 import { Form, Col, Button, Alert } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
@@ -59,7 +57,6 @@ const SignupForm = () => {
 
   return (
     <>
-      <NavBar />
       <div className="register-container p-5">
         <div className="pt-5 justify-content-center">
           <div className="row justify-content-center p-3 ml-5 form-container">
@@ -168,7 +165,6 @@ const SignupForm = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };
