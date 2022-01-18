@@ -24,11 +24,11 @@ const trailSchema = new Schema({
   rating: {
     type: Number,
   },
-  link: {
-    type: String
+  url: {
+    type: String,
   },
   img: {
-    type:String
+    type:String,
   }
 });
 
