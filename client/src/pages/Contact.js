@@ -26,7 +26,11 @@ const Contact = () => {
               />
               <h3>Andrew</h3>
               <h3>Martinez</h3>
-              <a href="https://github.com/andrew18929" target="_blank">
+              <a
+                href="https://github.com/andrew18929"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FontAwesomeIcon
                   icon={faGithub}
                   size="3x"
@@ -36,6 +40,7 @@ const Contact = () => {
               <a
                 href="https://linkedin.com/in/andrew-martinez-03144b192"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <FontAwesomeIcon
                   icon={faLinkedin}
@@ -52,7 +57,11 @@ const Contact = () => {
               />
               <h3>Maria</h3>
               <h3>Vallejo</h3>
-              <a href="https://github.com/Mvalljo" target="_blank">
+              <a
+                href="https://github.com/Mvalljo"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FontAwesomeIcon
                   icon={faGithub}
                   size="3x"
@@ -62,6 +71,7 @@ const Contact = () => {
               <a
                 href="https://www.linkedin.com/in/maria-vallejo-8237a41a6/"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <FontAwesomeIcon
                   icon={faLinkedin}
@@ -78,7 +88,11 @@ const Contact = () => {
               />
               <h3>Matheww</h3>
               <h3>Wiessing</h3>
-              <a href="https://github.com/Kiasiri" target="_blank">
+              <a
+                href="https://github.com/Kiasiri"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FontAwesomeIcon
                   icon={faGithub}
                   size="3x"
@@ -88,6 +102,7 @@ const Contact = () => {
               <a
                 href="http://www.linkedin.com/in/matthew-wiessing-06b754214"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <FontAwesomeIcon
                   icon={faLinkedin}
@@ -104,7 +119,11 @@ const Contact = () => {
               />
               <h3>Alfonso</h3>
               <h3>Robles</h3>
-              <a href="https://github.com/fons3517" target="_blank">
+              <a
+                href="https://github.com/fons3517"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FontAwesomeIcon
                   icon={faGithub}
                   size="3x"
@@ -114,6 +133,7 @@ const Contact = () => {
               <a
                 href="https://www.linkedin.com/in/alfonso-robles-3517-agr/"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <FontAwesomeIcon
                   icon={faLinkedin}
