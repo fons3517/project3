@@ -49,7 +49,7 @@ const typeDefs = gql`
     addHike(trail: [TrailInput]): User
     saveTrail(input: [TrailInput]): User
     login(email: String!, password: String!): Auth
-    removeTrail(trail: [TrailInput]): Trail
+    removeTrail(trailId: Int!): User
   }
 `;
 module.exports = typeDefs;
