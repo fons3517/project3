@@ -15,6 +15,8 @@ export const GET_ME = gql`
         difficulty
         length
         rating
+        url
+        img
       }
     }
   }
@@ -30,6 +32,8 @@ export const QUERY_TRAILS = gql`
       difficulty
       length
       rating
+      url
+      img
     }
   }
 `;
