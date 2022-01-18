@@ -33,3 +33,17 @@
     font-size: 3.5rem;
   }
 }
+
+@media (max-width: 768px) {
+  .signup-title {
+    font-weight: bolder;
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .signup-title {
+    font-weight: bolder;
+    font-size: 1.5rem;
+  }
+}
