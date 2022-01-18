@@ -112,7 +112,8 @@ const FindAHike = () => {
 
   return (
     <>
-      <Jumbotron fluid className="text-light bg-dark">
+      <Jumbotron fluid className="text-light" 
+        style={{ backgroundColor: "#fff8ed" }}>
         <Container>
           <h1>Search For Trails To Hike!</h1>
           <Form onSubmit={handleFormSubmit}>
