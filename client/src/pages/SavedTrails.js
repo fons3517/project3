@@ -42,6 +42,15 @@ const SavedTrails = () => {
     }
   };
 
+  // remove the <br /> from description and direction from the trail information
+  function removeBr(info) {
+    let firstSplit = info.split("<br />");
+    let firstJoin = firstSplit.join("");
+    let secondSplit = firstJoin.split("  ");
+    let secondJoin = secondSplit.join("");
+    return secondJoin;
+  }
+
   // if data isn't here yet, say so
   if (loading) {
     return <h2>STILL LOADING...</h2>;
@@ -88,15 +97,13 @@ const SavedTrails = () => {
                     </a>
                   </Card.Title>
                   <Card.Text>
-                    Description: {trail.description}
+                    Description: {removeBr(trail.description)}
                   </Card.Text>
                   <Card.Text>Length: {trail.length}</Card.Text>
                   <Card.Text>Rating: {trail.rating}</Card.Text>
+                  <Card.Text>Difficulty: {trail.difficulty}</Card.Text>
                   <Card.Text>
-                    Difficulty: {trail.difficulty ? trail.difficulty : null}
-                  </Card.Text>
-                  <Card.Text>
-                    Directions: {trail.directions}
+                    Directions: {removeBr(trail.directions)}
                   </Card.Text>{" "}
                   <Button
                     className="btn-block btn-danger"
