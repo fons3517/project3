@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
-import NavBar from "../components/navbar/NavBar";
-import Footer from "../components/footer/Footer";
 import "../Assets/styles/login.scss";
 import { Form, Col, Button, Alert } from "react-bootstrap";
 
@@ -52,7 +50,6 @@ const LoginForm = () => {
 
   return (
     <>
-      <NavBar />
       <div className="image-container text-center">
         <div className="row justify-content-center">
           <div className="login-text p-5 m-5 col-lg-4">
@@ -130,7 +127,6 @@ const LoginForm = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

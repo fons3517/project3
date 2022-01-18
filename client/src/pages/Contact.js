@@ -1,6 +1,4 @@
 import React from "react";
-import NavBar from "../components/navbar/NavBar";
-import Footer from "../components/footer/Footer";
 import "../Assets/styles/contact.scss";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,7 +9,6 @@ library.add(faLinkedin, faGithub);
 const Contact = () => {
   return (
     <>
-      <NavBar />
       <div className="contact-container">
         <div className="container">
           <div className="row text-center">
@@ -128,7 +125,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };
