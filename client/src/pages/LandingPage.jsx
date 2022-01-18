@@ -3,8 +3,16 @@ import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import AppTitle from "../components/appTitle/AppTitle";
 import "../Assets/styles/landingpage.scss";
+import Auth from "../utils/auth";
 
 const LandingPage = () => {
+  const loginOrNot = () => {
+    if (Auth.loggedIn()) {
+      return "/findAHike";
+    } else {
+      return "/login";
+    }
+  };
   return (
     <>
       <div className="landing-page-container">
@@ -20,7 +28,7 @@ const LandingPage = () => {
             <p className="mt-5">
               <Button variant="light">
                 <Link
-                  to="/login"
+                  to={loginOrNot}
                   alt="login"
                   style={{ color: "blue", fontWeight: "bolder" }}
                 >
