@@ -47,9 +47,7 @@ const Footer = () => {
         <div className="col-lg-12 mt-3 mb-3">
           &copy; Copyright: 2022&nbsp;
           <a href="https://github.com/fons3517/project3">
-            <FontAwesomeIcon
-              icon={faGithub}
-            />
+            <FontAwesomeIcon icon={faGithub} />
           </a>
         </div>
       </div>

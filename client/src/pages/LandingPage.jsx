@@ -1,4 +1,6 @@
 import React from "react";
+import NavBar from "../components/navbar/NavBar";
+import Footer from "../components/footer/Footer";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import AppTitle from "../components/appTitle/AppTitle";
@@ -15,6 +17,7 @@ const LandingPage = () => {
   };
   return (
     <>
+      <NavBar />
       <div className="landing-page-container">
         <div className="row justify-content-center">
           <div className="jumbo-text p-5 m-5 col-lg-4">
@@ -39,6 +42,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

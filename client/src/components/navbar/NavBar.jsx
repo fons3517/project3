@@ -33,9 +33,6 @@ const NavBar = () => {
             <Link className="nav-link" to="/findAHike" alt="find">
               Find A Hike
             </Link>
-            <Link className="nav-link" to="/profile" alt="profile">
-              Profile
-            </Link>
             <Link className="nav-link" to="/contact" alt="contact">
               Contact
             </Link>
