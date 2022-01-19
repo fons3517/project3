@@ -7,8 +7,8 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import NavBar from "./components/navbar/NavBar";
-import Footer from "./components/footer/Footer";
+//import NavBar from "./components/navbar/NavBar";
+//import Footer from "./components/footer/Footer";
 import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -45,17 +45,19 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <NavBar />
-        <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/savedtrails" component={SavedTrails} />
-          <Route exact path="/findahike" component={FindAHike} />
-          <Route exact path="/contact" component={Contact} />
-        </Switch>
-        <Footer />
+        <div className="d-flex flex-column min-vh-100">
+          <Switch>
+            <div>
+              <Route exact path="/" component={LandingPage} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/home" component={Home} />
+              <Route exact path="/savedtrails" component={SavedTrails} />
+              <Route exact path="/findahike" component={FindAHike} />
+              <Route exact path="/contact" component={Contact} />
+            </div>
+          </Switch>
+        </div>
       </Router>
     </ApolloProvider>
   );

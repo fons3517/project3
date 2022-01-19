@@ -8,6 +8,19 @@ export const GET_ME = gql`
       lastName
       email
       trails {
+        _id
+        trailId
+        name
+        description
+        directions
+        difficulty
+        length
+        rating
+        url
+        img
+      }
+      hiked {
+        _id
         trailId
         name
         description
@@ -32,6 +45,8 @@ export const QUERY_TRAILS = gql`
       difficulty
       length
       rating
+      url
+      img
     }
   }
 `;
