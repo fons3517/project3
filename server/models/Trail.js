@@ -29,8 +29,10 @@ const trailSchema = new Schema({
     type: String,
   },
   img: {
-    type:String,
+    type: String,
   }
 });
+
+const Trail = mongoose.model("Trail", trailSchema)
 
 module.exports = trailSchema;
