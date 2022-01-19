@@ -7,9 +7,7 @@ import { Form, Col, Button, Alert, Navbar } from "react-bootstrap";
 const Home = () => {
   return (
     <>
-      <NavBar />
       <div className="home-page-container"></div>
-      <Footer />
     </>
   );
 };
