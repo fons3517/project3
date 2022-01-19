@@ -38,7 +38,7 @@ HikeIt is a hiking application that allows you to search for hiking trails in yo
 
 - [HikeIt](https://hikeit2022.herokuapp.com/)
 
-- ![Homepage](./client/public/assets/images/HomePage.jpg)
+- ![Landing_Page](./client/public/assets/images/LandingPage.jpg)
 - ![Login](./client/public/assets/images/Login.jpg)
 - ![Sign-up](./client/public/assets/images/SignUp.jpg)
 - ![Personal_Account]()

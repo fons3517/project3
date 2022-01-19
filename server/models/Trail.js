@@ -33,6 +33,6 @@ const trailSchema = new Schema({
   }
 });
 
-const Trail = mongoose.model("Trail", trailSchema)
+const Trail = mongoose.model("Trail", trailSchema);
 
 module.exports = trailSchema;
