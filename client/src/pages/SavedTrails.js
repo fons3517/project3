@@ -1,10 +1,12 @@
 import React from "react";
+import NavBar from "../components/navbar/NavBar";
+import Footer from "../components/footer/Footer";
 import {
   Jumbotron,
   Container,
   CardColumns,
   Card,
-  Button
+  Button,
 } from "react-bootstrap";
 import Auth from "../utils/auth";
 import { removeTrailId } from "../utils/localStorage";
@@ -28,7 +30,7 @@ const SavedTrails = () => {
     try {
       // this is where we use the REMOVE_trail mutation
       await removeTrail({
-        variables: { trailId }
+        variables: { trailId },
       });
 
       if (error) {
@@ -58,6 +60,7 @@ const SavedTrails = () => {
 
   return (
     <>
+      <NavBar />
       <Jumbotron
         fluid
         className="text-light"
@@ -117,6 +120,7 @@ const SavedTrails = () => {
           })}
         </CardColumns>
       </Container>
+      <Footer />
     </>
   );
 };
