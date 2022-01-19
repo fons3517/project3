@@ -46,3 +46,20 @@ export const completetrailIds = (trailIdArr) => {
     localStorage.removeItem("completed_hikes");
   }
 };
+
+export const removeHikeId = (trailId) => {
+  const savedtrailIds = localStorage.getItem("completed_hikes")
+    ? JSON.parse(localStorage.getItem("completed_hikes"))
+    : null;
+
+  if (!savedtrailIds) {
+    return false;
+  }
+
+  const updatedSavedtrailIds = savedtrailIds?.filter(
+    (savedtrailId) => savedtrailId !== trailId
+  );
+  localStorage.setItem("completed_hikes", JSON.stringify(updatedSavedtrailIds));
+
+  return true;
+};

@@ -2,14 +2,34 @@ import React from "react";
 import NavBar from "../components/navbar/NavBar";
 import Footer from "../components/footer/Footer";
 import "../Assets/styles/home.scss";
-import { Container, CardColumns, Card } from "react-bootstrap";
-import { useQuery } from "@apollo/client";
+import { Container, CardColumns, Card, Button } from "react-bootstrap";
+import { useQuery, useMutation } from "@apollo/client";
 import { GET_ME } from "../utils/queries";
+import { REMOVE_HIKE } from "../utils/mutations";
+import { removeHikeId } from "../utils/localStorage";
 
 const Home = () => {
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || {};
+  const [removeHike, { error }] = useMutation(REMOVE_HIKE);
 
+  const handleDeleteHike = async (trailId) => {
+    try {
+      // this is where we use the REMOVE_trail mutation
+      await removeHike({
+        variables: { trailId }
+      });
+
+      if (error) {
+        throw new Error("something went wrong!");
+      }
+
+      // upon success, remove trail's id from localStorage
+      removeHikeId(trailId);
+    } catch (err) {
+      console.error(err);
+    }
+  };
   // if data isn't here yet, say so
   if (loading) {
     return <h2>STILL LOADING...</h2>;
@@ -42,6 +62,12 @@ const Home = () => {
                       </a>
                     </Card.Title>
                     <Card.Text>Length: {hike.length} mi</Card.Text>
+                    <Button
+                      className="btn-block btn-danger"
+                      onClick={() => handleDeleteHike(hike.trailId)}
+                    >
+                      Delete This Hike!
+                    </Button>
                   </Card.Body>
                 </Card>
               );
