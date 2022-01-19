@@ -7,9 +7,24 @@ const typeDefs = gql`
     lastName: String
     email: String
     trails: [Trail]
+    hiked: [hike]
   }
 
   type Trail {
+    _id: ID
+    trailId: Int
+    name: String
+    description: String
+    directions: String
+    difficulty: String
+    length: String
+    rating: Int
+    url: String
+    img: String
+  }
+
+  type hike {
+    _id: ID
     trailId: Int
     name: String
     description: String
@@ -22,6 +37,20 @@ const typeDefs = gql`
   }
 
   input TrailInput {
+    _id: ID
+    trailId: Int
+    name: String
+    description: String
+    directions: String
+    difficulty: String
+    length: String
+    rating: Int
+    url: String
+    img: String
+  }
+
+  input HikeInput {
+    _id: ID
     trailId: Int
     name: String
     description: String
@@ -45,8 +74,13 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addHike(trail: [TrailInput]): User
+    addUser(
+      firstName: String!
+      lastName: String!
+      email: String!
+      password: String!
+    ): Auth
+    completedTrail(input: [HikeInput]): User
     saveTrail(input: [TrailInput]): User
     login(email: String!, password: String!): Auth
     removeTrail(trailId: Int!): User

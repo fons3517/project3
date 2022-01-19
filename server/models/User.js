@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 const bcrypt = require("bcrypt");
 const trailSchema = require("./Trail");
+const completedSchema = require("./Completed");
 
 const userSchema = new Schema(
   {
@@ -24,8 +25,8 @@ const userSchema = new Schema(
       required: true,
       minLenth: 8
     },
-    trails: [trailSchema]
-    /*hikes: [{ type: Schema.Types.ObjectId, ref: "Hike" }]*/
+    trails: [trailSchema],
+    hiked: [completedSchema]
   },
   // set this to use virtual below
   {
