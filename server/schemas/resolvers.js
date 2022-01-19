@@ -69,6 +69,17 @@ const resolvers = {
         return updatedUser;
       }
       throw new AuthenticationError("Oops! Please login!");
+    },
+    removeHike: async (parent, { trailId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { hiked: { trailId } } },
+          { new: true }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError("Oops! Please login!");
     }
   }
 };

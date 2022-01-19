@@ -84,6 +84,7 @@ const typeDefs = gql`
     saveTrail(input: [TrailInput]): User
     login(email: String!, password: String!): Auth
     removeTrail(trailId: Int!): User
+    removeHike(trailId: Int!): User
   }
 `;
 module.exports = typeDefs;
