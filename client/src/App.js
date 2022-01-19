@@ -45,17 +45,21 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <NavBar />
-        <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/savedtrails" component={SavedTrails} />
-          <Route exact path="/findahike" component={FindAHike} />
-          <Route exact path="/contact" component={Contact} />
-        </Switch>
-        <Footer />
+        <div className="d-flex flex-column min-vh-100">
+          <NavBar />
+          <Switch>
+            <div>
+              <Route exact path="/" component={LandingPage} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/home" component={Home} />
+              <Route exact path="/savedtrails" component={SavedTrails} />
+              <Route exact path="/findahike" component={FindAHike} />
+              <Route exact path="/contact" component={Contact} />
+            </div>
+          </Switch>
+          <Footer />
+        </div>
       </Router>
     </ApolloProvider>
   );
