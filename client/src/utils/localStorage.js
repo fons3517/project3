@@ -30,3 +30,19 @@ export const removeTrailId = (trailId) => {
 
   return true;
 };
+
+export const getCompletedtrailIds = () => {
+  const completedtrailIds = localStorage.getItem("completed_hikes")
+    ? JSON.parse(localStorage.getItem("completed_hikes"))
+    : [];
+
+  return completedtrailIds;
+};
+
+export const completetrailIds = (trailIdArr) => {
+  if (trailIdArr.length) {
+    localStorage.setItem("completed_hikes", JSON.stringify(trailIdArr));
+  } else {
+    localStorage.removeItem("completed_hikes");
+  }
+};

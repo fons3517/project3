@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Trail } = require("../models");
+const { User } = require("../models");
 const { signToken } = require("../utils/auth");
 
 // Set-up Stripe for future development
@@ -58,12 +58,12 @@ const resolvers = {
       }
       throw new AuthenticationError("Oops! Please login!");
     },
-    addHike: async (parent, { trail }, context) => {
+    completedTrail: async (parent, { input }, context) => {
       console.log(context);
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
-          { _id: user._id },
-          { $addToSet: { hikes: trail } },
+          { _id: context.user._id },
+          { $addToSet: { hiked: input } },
           { new: true }
         );
         return updatedUser;

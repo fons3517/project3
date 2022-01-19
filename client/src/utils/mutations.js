@@ -10,6 +10,19 @@ export const LOGIN = gql`
         lastName
         email
         trails {
+          _id
+          trailId
+          name
+          description
+          directions
+          difficulty
+          length
+          rating
+          url
+          img
+        }
+        hiked {
+          _id
           trailId
           name
           description
@@ -45,6 +58,19 @@ export const ADD_USER = gql`
         lastName
         email
         trails {
+          _id
+          trailId
+          name
+          description
+          directions
+          difficulty
+          length
+          rating
+          url
+          img
+        }
+        hiked {
+          _id
           trailId
           name
           description
@@ -68,6 +94,19 @@ export const SAVE_TRAIL = gql`
       lastName
       email
       trails {
+        _id
+        trailId
+        name
+        description
+        directions
+        difficulty
+        length
+        rating
+        url
+        img
+      }
+      hiked {
+        _id
         trailId
         name
         description
@@ -82,31 +121,39 @@ export const SAVE_TRAIL = gql`
   }
 `;
 
-export const ADD_HIKE = gql`
-  mutation addHike(
-    $name: String!
-    $description: String!
-    $difficulty: String!
-    $length: String!
-    $rating: Int
-    ) {
-      addHike(
-        name: $name
-        description: $description
-        difficulty: $difficulty
-        length: $length
-        rating: $rating
-      ) token{
-        user{
-          _id
-          name
-          description
-          difficulty
-          length
-          rating
-        }
+export const COMPLETED_TRAIL = gql`
+  mutation compledTrail($input: [HikeInput]) {
+    completedTrail(input: $input) {
+      _id
+      firstName
+      lastName
+      email
+      trails {
+        _id
+        trailId
+        name
+        description
+        directions
+        difficulty
+        length
+        rating
+        url
+        img
+      }
+      hiked {
+        _id
+        trailId
+        name
+        description
+        directions
+        difficulty
+        length
+        rating
+        url
+        img
       }
     }
+  }
 `;
 
 export const REMOVE_TRAIL = gql`
@@ -117,6 +164,7 @@ export const REMOVE_TRAIL = gql`
       lastName
       email
       trails {
+        _id
         trailId
         name
         description

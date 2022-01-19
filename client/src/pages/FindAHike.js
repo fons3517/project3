@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import NavBar from "../components/navbar/NavBar";
+import Footer from "../components/footer/Footer";
 import {
   Jumbotron,
   Container,
@@ -6,7 +8,7 @@ import {
   Form,
   Button,
   Card,
-  CardColumns
+  CardColumns,
 } from "react-bootstrap";
 import { locationApi } from "../utils/API";
 import { searchTrailApi } from "../utils/API";
@@ -14,7 +16,7 @@ import Auth from "../utils/auth";
 import { saveTrailIds, getSavedTrailIds } from "../utils/localStorage";
 import { useMutation } from "@apollo/client";
 import { SAVE_TRAIL } from "../utils/mutations";
-// import "../Assets/styles/findahike.scss";
+import "../Assets/styles/findahike.scss";
 
 const FindAHike = () => {
   // create state for holding returned api data
@@ -68,7 +70,7 @@ const FindAHike = () => {
         length: trail.length,
         rating: Math.round(trail.rating),
         url: trail.url,
-        img: trail.thumbnail
+        img: trail.thumbnail,
       }));
 
       setSearchedTrails(trailData);
@@ -95,7 +97,7 @@ const FindAHike = () => {
 
     try {
       const { data } = await saveTrail({
-        variables: { input: trailToSave }
+        variables: { input: trailToSave },
       });
       if (error) {
         console.log("error");
@@ -120,6 +122,7 @@ const FindAHike = () => {
 
   return (
     <>
+      <NavBar />
       <Jumbotron
         fluid
         className="text-light"
@@ -149,55 +152,65 @@ const FindAHike = () => {
         </Container>
       </Jumbotron>
 
-      <Container>
-        <h2>
-          {searchedTrails.length
-            ? `Viewing ${searchedTrails.length} results:`
-            : "Search for a trail to begin"}
-        </h2>
-        <CardColumns>
-          {searchedTrails.map((trail) => {
-            return (
-              <Card key={trail.trailId} border="dark">
-                {trail.img ? (
-                  <Card.Img
-                    src={trail.img}
-                    alt={`The picture for ${trail.name}`}
-                    variant="top"
-                  />
-                ) : null}
-                <Card.Body>
-                  <Card.Title>
-                    <a href={trail.url} target="_blank" rel="noreferrer">
-                      {trail.name}
-                    </a>
-                  </Card.Title>
-                  <Card.Text>Description: {removeBr(trail.description)}</Card.Text>
-                  <Card.Text>Length: {trail.length}</Card.Text>
-                  <Card.Text>Rating: {trail.rating}</Card.Text>
-                  <Card.Text>Difficulty: {trail.difficulty}</Card.Text>
-                  <Card.Text>Directions: {removeBr(trail.directions)}</Card.Text>
-                  {Auth.loggedIn() && (
-                    <Button
-                      disabled={savedTrailIds?.some(
-                        (savedTrailId) => savedTrailId === trail.trailId
+      <div className="search-page-container mt-0">
+        <div className="search-hike-container justify-content-center">
+          <div className="jumbo-text p-5 m-5 col-xl">
+            <h2>
+              {searchedTrails.length
+                ? `Viewing ${searchedTrails.length} results:`
+                : "Search for a trail to begin"}
+            </h2>
+
+            <CardColumns>
+              {searchedTrails.map((trail) => {
+                return (
+                  <Card key={trail.trailId} border="dark">
+                    {trail.img ? (
+                      <Card.Img
+                        src={trail.img}
+                        alt={`The picture for ${trail.name}`}
+                        variant="top"
+                      />
+                    ) : null}
+                    <Card.Body>
+                      <Card.Title>
+                        <a href={trail.url} target="_blank" rel="noreferrer">
+                          {trail.name}
+                        </a>
+                      </Card.Title>
+                      <Card.Text>
+                        Description: {removeBr(trail.description)}
+                      </Card.Text>
+                      <Card.Text>Length: {trail.length}</Card.Text>
+                      <Card.Text>Rating: {trail.rating}</Card.Text>
+                      <Card.Text>Difficulty: {trail.difficulty}</Card.Text>
+                      <Card.Text>
+                        Directions: {removeBr(trail.directions)}
+                      </Card.Text>
+                      {Auth.loggedIn() && (
+                        <Button
+                          disabled={savedTrailIds?.some(
+                            (savedTrailId) => savedTrailId === trail.trailId
+                          )}
+                          className="btn-block btn-info"
+                          onClick={() => handleSaveTrail(trail.trailId)}
+                        >
+                          {savedTrailIds?.some(
+                            (savedTrailId) => savedTrailId === trail.trailId
+                          )
+                            ? "This trail has been saved!"
+                            : "Save this Trail!"}
+                        </Button>
                       )}
-                      className="btn-block btn-info"
-                      onClick={() => handleSaveTrail(trail.trailId)}
-                    >
-                      {savedTrailIds?.some(
-                        (savedTrailId) => savedTrailId === trail.trailId
-                      )
-                        ? "This trail has already been saved!"
-                        : "Save this Trail!"}
-                    </Button>
-                  )}
-                </Card.Body>
-              </Card>
-            );
-          })}
-        </CardColumns>
-      </Container>
+                    </Card.Body>
+                  </Card>
+                );
+              })}
+            </CardColumns>
+          </div>
+        </div>
+      </div>
+      <Footer />
     </>
   );
 };
