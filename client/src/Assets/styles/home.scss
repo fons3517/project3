@@ -3,10 +3,105 @@
   padding: 0 !important;
   border-radius: 0 !important;
   background-image: url("../images/desert-mountain-hike.jpg");
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom;
+  max-width: 100% !important;
+  min-height: 45vh;
+}
+
+.stats-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 96px 20px 96px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 2rem;
+  text-align: center;
+}
+
+.stats-module-container {
+  width: 32%;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.stats-module-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 84px;
+  font-weight: 700;
+  color: blue;
+  margin-bottom: 8px;
+  line-height: 0.86;
+  letter-spacing: -1px;
+}
+
+.stats-module-subtitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: blue;
+  margin-bottom: 8px;
+}
+
+.stats-module-text {
+  width: 80%;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  color: black;
+}
+
+.picture-container {
+  background-image: url("../images/stairs-in-the-woods.jpg");
+  filter: brightness(100%);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  max-width: 100% !important;
-  min-height: 100vh;
+  height: 725px;
+}
+
+.picture-content-container {
+  width: calc(100% - 80px);
+  max-width: 1240px;
+  filter: brightness(100%);
+}
+
+.picture-content-titleTop {
+  font-family: Arial, Helvetica, sans-serif;
+  color: yellow;
+  margin-left: 50px;
+  padding-top: 350px;
+  font-weight: 700;
+  font-size: 96px;
+  letter-spacing: normal;
+  line-height: 96px;
+}
+
+.picture-content-titleBottom {
+  font-family: Arial, Helvetica, sans-serif;
+  color: yellow;
+  margin-left: 50px;
+  font-weight: 700;
+  font-size: 96px;
+  letter-spacing: normal;
+  line-height: 96px;
+}
+
+.picture-content-text {
+  margin-top: 32px;
+  color: white;
+  margin-left: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
 }
