@@ -43,6 +43,8 @@ HikeIt is a hiking application that allows you to search for hiking trails in yo
 - ![Sign-up](./client/public/assets/images/SignUp.jpg)
 - ![Personal_Account](./client/public/assets/images/PersonalAccount.jpg)
 - ![Hiking_Trails](./client/public/assets/images/FindAHike.jpg)
+- ![Link_to_Trail](./client/public/assets/images/TrailLink.jpg)
+- ![TrailLink2](./client/public/assets/images/TrailLink2.jpg)
 
 #### Contact_Info
 
