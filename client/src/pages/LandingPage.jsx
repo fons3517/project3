@@ -20,7 +20,7 @@ const LandingPage = () => {
       <NavBar />
       <div className="landing-page-container">
         <div className="row justify-content-center">
-          <div className="jumbo-text p-5 m-5 col-lg-4">
+          <div className="jumbo-text-box p-5 m-5 col-lg-4">
             <h2>Hello, and welcome to</h2>
             <h1 className="landing-app-title">
               <AppTitle />

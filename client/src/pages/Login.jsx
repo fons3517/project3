@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import NavBar from "../components/navbar/NavBar";
+import Footer from "../components/footer/Footer";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "../utils/mutations";
@@ -30,7 +32,7 @@ const LoginForm = () => {
 
     try {
       const { data } = await loginUser({
-        variables: { ...userFormData }
+        variables: { ...userFormData },
       });
 
       console.log(data);
@@ -44,12 +46,13 @@ const LoginForm = () => {
       firstName: "",
       lastName: "",
       email: "",
-      password: ""
+      password: "",
     });
   };
 
   return (
     <>
+      <NavBar />
       <div className="image-container text-center">
         <div className="row justify-content-center">
           <div className="login-text p-5 m-5 col-lg-4">
@@ -136,6 +139,7 @@ const LoginForm = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
